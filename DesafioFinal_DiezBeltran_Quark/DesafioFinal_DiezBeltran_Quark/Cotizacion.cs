@@ -8,7 +8,7 @@ namespace DesafioFinal_DiezBeltran_Quark
 {
     class Cotizacion
     {
-        static int numeroIdentificacion = 00;
+        static int numeroIdentificacion = 0;
         private string fecha;
         private int codVendedor;
         private string prendaCotizada;

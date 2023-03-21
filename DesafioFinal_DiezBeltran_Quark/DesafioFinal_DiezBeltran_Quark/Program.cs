@@ -6,6 +6,7 @@ namespace DesafioFinal_DiezBeltran_Quark
     {
         static void Main(string[] args)
         {
+            Tienda tienda1 = new Tienda("Ropa cool", "Cabildo 1543");
             Vendedor vendedor1 = new Vendedor("Juan", "Perez", 42353);
             vendedor1.Cotizar("remera manga larga", 5);
             vendedor1.Cotizar("remera manga corta", 3);
