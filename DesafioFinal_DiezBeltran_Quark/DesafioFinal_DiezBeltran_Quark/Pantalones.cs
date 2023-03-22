@@ -12,10 +12,9 @@ namespace DesafioFinal_DiezBeltran_Quark
 
         public string TipoDePantalon { get => tipoDePantalon;}
 
-        public Pantalones(string cal, int precio, int stock ,string tipo)
+        public Pantalones(int stock ,string tipo, string cal)
         {
             calidadPrenda = cal;
-            precioUnitario = precio;
             this.stock = stock;
             tipoDePantalon = tipo;
         }

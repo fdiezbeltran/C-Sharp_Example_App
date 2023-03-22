@@ -8,9 +8,14 @@ namespace DesafioFinal_DiezBeltran_Quark
         {
             Tienda tienda1 = new Tienda("Ropa cool", "Cabildo 1543");
             Vendedor vendedor1 = new Vendedor("Juan", "Perez", 42353);
-            vendedor1.Cotizar("remera manga larga", 5);
-            vendedor1.Cotizar("remera manga corta", 3);
-            vendedor1.Cotizar("pantalon chupin", 7);
+            vendedor1.AsignarTienda(tienda1);
+            
+            
+            
+            vendedor1.Cotizar(1, 100, 1);
+            vendedor1.Cotizar(2, 100, 1);
+            vendedor1.Cotizar(3, 100, 1);
+            vendedor1.Cotizar(4, 100, 1);
             Console.ReadKey();
             
             

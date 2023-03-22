@@ -16,15 +16,30 @@ namespace DesafioFinal_DiezBeltran_Quark
         public string Apellido { get => apellido; set => apellido = value; }
         public int CodigoVendedor { get => codigoVendedor; set => codigoVendedor = value; }
 
+
         public Vendedor(string nom, string ape, int cod)
         {
             Nombre = nom;
             Apellido = ape;
             CodigoVendedor = cod;
         }
-        public void Cotizar(string prenda, int cant)
+
+        private Tienda tienda;
+        private Prendas prendaElegida;
+        
+        public void AsignarTienda(Tienda tienda)
         {
-            Cotizacion cot1 = new Cotizacion(CodigoVendedor, prenda, cant);
+            this.tienda = tienda;
+        }
+        public void ElegirPrenda(int codigoPrenda)
+        {
+            prendaElegida = tienda.ListaDePrendas.ElementAt(codigoPrenda);
+        }
+        public void Cotizar(int codigoPrenda, float precioUnitario, int cant)
+        {
+            ElegirPrenda(codigoPrenda);
+            prendaElegida.PrecioUnitario = precioUnitario;
+            Cotizacion cot1 = new Cotizacion(CodigoVendedor, prendaElegida, cant);
         }
     }
 }
