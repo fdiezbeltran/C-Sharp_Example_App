@@ -27,6 +27,7 @@ namespace DesafioFinal_DiezBeltran_Quark
         private Tienda tienda;
         private Prendas prendaElegida;
         
+        
         public void AsignarTienda(Tienda tienda)
         {
             this.tienda = tienda;
@@ -35,11 +36,21 @@ namespace DesafioFinal_DiezBeltran_Quark
         {
             prendaElegida = tienda.ListaDePrendas.ElementAt(codigoPrenda);
         }
-        public void Cotizar(int codigoPrenda, float precioUnitario, int cant)
+        public Cotizacion Cotizar(int codigoPrenda, float precioUnitario, int cant)
         {
             ElegirPrenda(codigoPrenda);
-            prendaElegida.PrecioUnitario = precioUnitario;
-            Cotizacion cot1 = new Cotizacion(CodigoVendedor, prendaElegida, cant);
+            if(prendaElegida.Stock >= cant)
+            {
+                prendaElegida.PrecioUnitario = precioUnitario;
+                Cotizacion cot = new Cotizacion(CodigoVendedor, prendaElegida, cant);
+                HistorialCotizaciones.AgregarCotizacion(cot);
+                return cot;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

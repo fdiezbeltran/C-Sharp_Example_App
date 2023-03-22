@@ -27,6 +27,7 @@ namespace DesafioFinal_DiezBeltran_Quark
         private string cuello;
         private string corte;
 
+        
         public Cotizacion(int cod, Prendas prenda, int cant)
         {
             NumeroIdentificacion = NumeroIdentificacion + 1;
@@ -37,15 +38,19 @@ namespace DesafioFinal_DiezBeltran_Quark
             {
                 manga = camisa.TipoDeManga;
                 cuello = camisa.TipoDeCuello;
-                PrendaCotizada = "Camisa " + manga + " " + cuello;
+                PrendaCotizada = "Camisa - " + manga + " - " + cuello + " - " + prenda.CalidadPrenda;
             }else if(prenda is Pantalones pantalon)
             {
                 corte = pantalon.TipoDePantalon;
-                PrendaCotizada = "Pantalones " + corte;
+                PrendaCotizada = "Pantalones - " + corte + " - " + prenda.CalidadPrenda;
             }
             CantidadCotizada = cant;
 
+
+            
             CalculoCotizacion(prenda, manga, cuello, corte, CantidadCotizada);
+
+            
 
             Console.WriteLine(NumeroIdentificacion);
             Console.WriteLine(Fecha);
@@ -54,6 +59,10 @@ namespace DesafioFinal_DiezBeltran_Quark
             Console.WriteLine(CantidadCotizada);
             Console.WriteLine(ResultadoCotizacion);
             Console.WriteLine("------------------------------");
+            
+            
+
+
         }
 
         public void CalculoCotizacion(Prendas _prenda, string manga, string cuello, string corte, int cant)
@@ -82,7 +91,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             {
                 ResultadoCotizacion = ResultadoCotizacion + ResultadoCotizacion * 0.3f;
             }
-
+            
             ResultadoCotizacion = ResultadoCotizacion * cant;
         }
       

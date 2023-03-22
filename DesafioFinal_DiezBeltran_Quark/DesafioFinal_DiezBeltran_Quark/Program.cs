@@ -12,10 +12,11 @@ namespace DesafioFinal_DiezBeltran_Quark
             
             
             
-            vendedor1.Cotizar(1, 100, 1);
-            vendedor1.Cotizar(2, 100, 1);
-            vendedor1.Cotizar(3, 100, 1);
-            vendedor1.Cotizar(4, 100, 1);
+            
+            vendedor1.Cotizar(10, 100, 1);
+            vendedor1.Cotizar(10, 100, 3);
+            vendedor1.Cotizar(1, 300, 1);
+            HistorialCotizaciones.MostrarHistorial();
             Console.ReadKey();
             
             
