@@ -13,6 +13,8 @@ namespace DesafioFinal_DiezBeltran_Quark
         int MostrarCodigoDePrenda();
         float MostrarPrecioPorPrenda();
         int MostrarCantidadDePrendas();
+
+        void MostrarTitulo();
     }
 
     
