@@ -9,5 +9,11 @@ namespace DesafioFinal_DiezBeltran_Quark
     public interface IVista
     {
         void MostrarTexto(string texto);
+
+        int MostrarCodigoDePrenda();
+        float MostrarPrecioPorPrenda();
+        int MostrarCantidadDePrendas();
     }
+
+    
 }

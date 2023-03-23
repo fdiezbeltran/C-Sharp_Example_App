@@ -32,10 +32,6 @@ namespace DesafioFinal_DiezBeltran_Quark
         {
             this.tienda = tienda;
         }
-        public void ElegirPrenda(int codigoPrenda)
-        {
-            prendaElegida = tienda.ListaDePrendas.ElementAt(codigoPrenda);
-        }
         public Cotizacion Cotizar(int codigoPrenda, float precioUnitario, int cant)
         {
             ElegirPrenda(codigoPrenda);
@@ -51,6 +47,10 @@ namespace DesafioFinal_DiezBeltran_Quark
                 return null;
             }
 
+        }
+        public void ElegirPrenda(int codigoPrenda)
+        {
+            prendaElegida = tienda.ListadoDePrendas[codigoPrenda];
         }
     }
 }

@@ -8,14 +8,17 @@ namespace DesafioFinal_DiezBeltran_Quark
 {
     class VistaUsuario : IVista
     {
+        private string codigoDePrenda;
+        private int cantidadDePrendas;
+        private float precioPorPrenda;
+        
         private readonly Presentador presentador;
-       
+
         public VistaUsuario()
         {
             presentador = new Presentador(this);
             MostrarMenuPrincipal();
         }
-        string codigoDePrenda;
         string titulo = @",------.                            ,-----.              ,--.
 |  .--. ' ,---.  ,---.  ,--,--.    '  .--./ ,---.  ,---. |  |
 |  '--'.'| .-. || .-. |' ,-.  |    |  |    | .-. || .-. ||  |
@@ -30,12 +33,14 @@ namespace DesafioFinal_DiezBeltran_Quark
    |___|.__|                                          |__|__|
 
 ─────────────────────────────────────────────────────────────";
+
+
         public void MostrarMenuPrincipal()
         {
             string opcionElegida;
             bool salir = false;
-          
-           
+
+
             do
             {
                 Console.Clear();
@@ -77,8 +82,6 @@ namespace DesafioFinal_DiezBeltran_Quark
             string opcionElegida;
             bool salir = false;
 
-            
-
             do
             {
                 Console.Clear();
@@ -88,30 +91,34 @@ namespace DesafioFinal_DiezBeltran_Quark
                 MostrarTexto("Desea cotizar Camisas(1) o Pantalones(2)?");
                 opcionElegida = Console.ReadLine();
                 OpcionPrenda(opcionElegida, ref salir);
-                if(opcionElegida == "1")
+                if (opcionElegida == "1")
                 {
-                    MostrarTexto("Manga corta o Manga larga?");
+                    MostrarTexto("Manga corta(1) o Manga larga(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionManga(opcionElegida, ref salir);
-                    MostrarTexto("Cuello comun o Cuello Mao?");
+                    MostrarTexto("Cuello mao(1) o Cuello comun(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCuello(opcionElegida, ref salir);
-                    MostrarTexto("Calidad Stardard o Premium?");
+                    MostrarTexto("Calidad Stardard(1) o Premium(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCalidad(opcionElegida, ref salir);
-                    MostrarTexto(codigoDePrenda);
                 }
                 else if (opcionElegida == "2")
                 {
-                    MostrarTexto("Comunes o Chupines?");
+                    MostrarTexto("Comunes(1) o Chupines(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCorte(opcionElegida, ref salir);
-                    MostrarTexto("Calidad Stardard o Premium?");
+                    MostrarTexto("Calidad Stardard(1) o Premium(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCalidad(opcionElegida, ref salir);
-                    MostrarTexto(codigoDePrenda);
                 }
-                opcionElegida = Console.ReadLine();
+                MostrarTexto("Que cantidad de prendas desea cotizar?");
+                cantidadDePrendas = int.Parse(Console.ReadLine());
+                MostrarTexto("Cual es el precio unitario de la prenda?");
+                precioPorPrenda = float.Parse(Console.ReadLine());
+                presentador.PedirCotizacion();
+
+
             } while (salir == false);
         }
         public void OpcionPrenda(string opcionElegida, ref bool salir)
@@ -127,7 +134,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                 case "2":
                     Console.CursorTop--;
                     Console.WriteLine("Pantalones");
-                    codigoDePrenda = "1";
+                    codigoDePrenda = "10";
                     salir = false;
                     break;
                 case "x":
@@ -182,13 +189,13 @@ namespace DesafioFinal_DiezBeltran_Quark
             {
                 case "1":
                     Console.CursorTop--;
-                    Console.WriteLine("Cuello comun");
+                    Console.WriteLine("Cuello mao");
                     codigoDePrenda = codigoDePrenda + "0";
                     salir = false;
                     break;
                 case "2":
                     Console.CursorTop--;
-                    Console.WriteLine("Cuello mao");
+                    Console.WriteLine("Cuello comun");
                     codigoDePrenda = codigoDePrenda + "1";
                     salir = false;
                     break;
@@ -272,11 +279,23 @@ namespace DesafioFinal_DiezBeltran_Quark
 
 
 
-
+        //Metodos de la interfaz
         public void MostrarTexto(string texto)
         {
             Console.WriteLine(texto);
         }
+        public int MostrarCodigoDePrenda()
+        {
+            return int.Parse(codigoDePrenda);
+        }
+        public float MostrarPrecioPorPrenda()
+        {
+            return precioPorPrenda;
+        }
+        public int MostrarCantidadDePrendas()
+        {
+            return cantidadDePrendas;
         }
     }
+}
 
