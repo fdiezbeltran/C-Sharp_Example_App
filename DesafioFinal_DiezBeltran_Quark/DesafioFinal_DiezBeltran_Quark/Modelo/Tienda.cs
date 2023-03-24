@@ -10,19 +10,16 @@ namespace DesafioFinal_DiezBeltran_Quark
     {
         private string nombre;
         private string direccion;
-        //private List<Prendas> listaDePrendas = new List<Prendas>();
         private Dictionary<int, Prendas> listadoDePrendas = new Dictionary<int, Prendas>();
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
+        public string Nombre { get => nombre; }
+        public string Direccion { get => direccion; }
         internal Dictionary<int, Prendas> ListadoDePrendas { get => listadoDePrendas; }
-
-        //internal List<Prendas> ListaDePrendas { get => listaDePrendas; }
-
+                
         public Tienda(string nom, string dir)
         {
-            Nombre = nom;
-            Direccion = dir;
+            nombre = nom;
+            direccion = dir;
             Prendas prenda1 = new Camisas(100, "Manga corta", "Cuello mao", "Standard");
             Prendas prenda2 = new Camisas(100, "Manga corta", "Cuello mao", "Premium");
             Prendas prenda3 = new Camisas(150, "Manga corta", "Cuello comun", "Standard");
@@ -35,19 +32,6 @@ namespace DesafioFinal_DiezBeltran_Quark
             Prendas prenda10 = new Pantalones(250, "Comunes", "Premium");
             Prendas prenda11 = new Pantalones(750, "Chupines", "Standard");
             Prendas prenda12 = new Pantalones(750, "Chupines", "Premium");
-
-            /*ListaDePrendas.Add(prenda1);
-            ListaDePrendas.Add(prenda2);
-            ListaDePrendas.Add(prenda3);
-            ListaDePrendas.Add(prenda4);
-            ListaDePrendas.Add(prenda5);
-            ListaDePrendas.Add(prenda6);
-            ListaDePrendas.Add(prenda7);
-            ListaDePrendas.Add(prenda8);
-            ListaDePrendas.Add(prenda9);
-            ListaDePrendas.Add(prenda10);
-            ListaDePrendas.Add(prenda11);
-            ListaDePrendas.Add(prenda12);*/
 
             ListadoDePrendas.Add(0000, prenda1);
             ListadoDePrendas.Add(0001, prenda2);

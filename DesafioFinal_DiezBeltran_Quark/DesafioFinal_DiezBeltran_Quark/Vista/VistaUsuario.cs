@@ -61,7 +61,10 @@ namespace DesafioFinal_DiezBeltran_Quark
                     salir = false;
                     break;
                 case "2":
-                    //metodo de mostrar historial
+                    Console.Clear();
+                    presentador.MostrarHistorial();
+                    //MostrarTexto("-------------------------------------------------------------------");
+                    MostrarTexto("Presione cualquier tecla para cerrar el historial.");
                     Console.ReadKey();
                     salir = false;
                     break;
@@ -115,7 +118,10 @@ namespace DesafioFinal_DiezBeltran_Quark
                 cantidadDePrendas = int.Parse(Console.ReadLine());
                 MostrarTexto("Cual es el precio unitario de la prenda?");
                 precioPorPrenda = float.Parse(Console.ReadLine());
-                presentador.PedirCotizacion();
+                MostrarTexto("Desea confirmar la cotizacion? Confirmar(1) - Cancelar(2)");
+                opcionElegida = Console.ReadLine();
+                OpcionConfirmar(opcionElegida, ref salir);
+                Console.ReadKey();
                 MostrarMenuPrincipal();
 
 
@@ -281,10 +287,48 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
             }
         }
-        
+        public void OpcionConfirmar(string opcionElegida, ref bool salir)
+        {
+            switch (opcionElegida)
+            {
+                case "1":
+                    Console.CursorTop--;
+                    presentador.PedirCotizacion();
+                    salir = false;
+                    break;
+                case "2":
+                    Console.CursorTop--;
+                    MenuCotizacion();
+                    salir = false;
+                    break;
+                case "x":
+                case "X":
+                    MostrarMenuPrincipal();
+                    break;
+                case "h":
+                case "H":
+                    //historial de cotizaciones
+                    break;
+                default:
+                    MostrarTexto("La opción ingresada es inválida, por favor reintente.");
+                    Console.ReadKey();
+                    MenuCotizacion();
+                    salir = false;
+                    break;
+            }
+        }
+
 
 
         //Metodos de la interfaz
+        public void MostrarTitulo()
+        {
+            Console.Clear();
+            MostrarTexto(titulo);
+            presentador.MostrarDatosTienda();
+            presentador.MostrarDatosVendedor();
+            MostrarTexto("─────────────────────────────────────────────────────────────");
+        }
         public void MostrarTexto(string texto)
         {
             Console.WriteLine(texto);
@@ -300,14 +344,6 @@ namespace DesafioFinal_DiezBeltran_Quark
         public int MostrarCantidadDePrendas()
         {
             return cantidadDePrendas;
-        }
-        public void MostrarTitulo()
-        {
-            Console.Clear();
-            MostrarTexto(titulo);
-            presentador.MostrarDatosTienda();
-            presentador.MostrarDatosVendedor();
-            MostrarTexto("─────────────────────────────────────────────────────────────");
         }
     }
 }
