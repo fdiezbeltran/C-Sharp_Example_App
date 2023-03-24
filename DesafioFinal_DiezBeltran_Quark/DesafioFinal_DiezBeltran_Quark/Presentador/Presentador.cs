@@ -13,11 +13,11 @@ namespace DesafioFinal_DiezBeltran_Quark
         private Cotizacion cot;
         private readonly IVista _vista;
 
-        public Presentador(IVista vista)
+        public Presentador(IVista vista, string nombre, string apellido, int codigo)
         {
-            _tienda = new Tienda("Ropa cool", "Cabildo 1543");
             _vista = vista;
-            vendedor1 = new Vendedor("Juan", "Perez", 42353);
+            _tienda = new Tienda("Ropa cool", "Cabildo 1543");
+            vendedor1 = new Vendedor(nombre, apellido, codigo);
             vendedor1.AsignarTienda(_tienda);
         }
 
@@ -67,9 +67,9 @@ namespace DesafioFinal_DiezBeltran_Quark
             _vista.MostrarTexto("Presione una tecla para volver al menu incial.");
         }
 
-        public void MostrarHistorial()
+        public void ImprimirHistorial()
         {            
-            _vista.MostrarTexto(" - - - - - - - HISTORIAL - - - - - - - ");
+            _vista.MostrarTexto(" - - - - - - - - - - - - - - HISTORIAL - - - - - - - - - - - - - - -");
             foreach (Cotizacion cot in HistorialCotizaciones.Cotizaciones)
             {
                 _vista.MostrarTexto("ID de la cotizacion: " + cot.NumeroIdentificacion);

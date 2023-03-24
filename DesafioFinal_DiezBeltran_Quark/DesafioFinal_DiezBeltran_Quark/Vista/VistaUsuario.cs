@@ -12,12 +12,13 @@ namespace DesafioFinal_DiezBeltran_Quark
         private int cantidadDePrendas;
         private float precioPorPrenda;
 
-        private readonly Presentador presentador;
+        private Presentador presentador;
+
+        
 
         public VistaUsuario()
         {
-            presentador = new Presentador(this);
-            MostrarMenuPrincipal();
+            MostrarLogin();            
         }
         string titulo = @",------.                            ,-----.              ,--.
 |  .--. ' ,---.  ,---.  ,--,--.    '  .--./ ,---.  ,---. |  |
@@ -35,18 +36,40 @@ namespace DesafioFinal_DiezBeltran_Quark
 ─────────────────────────────────────────────────────────────";
 
 
+        public void MostrarLogin()
+        {
+            Console.Clear();
+            MostrarTexto(titulo);
+            MostrarTexto("Ingrese nombre del usuario.");
+            string nombre = Console.ReadLine();
+            MostrarTexto("Ingrese apellido del usuario.");
+            string apellido = Console.ReadLine();
+            MostrarTexto("Ingrese el codigo de vendedor.");
+            int codigo = 0;
+            try
+            {
+                codigo = int.Parse(Console.ReadLine());          
+            }
+            catch (FormatException e)
+            {
+                MostrarTexto("La opción ingresada es inválida, por favor reintente.");
+                Console.ReadKey();
+                MostrarLogin();
+            }
+            presentador = new Presentador(this, nombre, apellido, codigo);
+            MostrarMenuPrincipal();
+        }
         public void MostrarMenuPrincipal()
         {
             string opcionElegida;
             bool salir = false;
-
-
             do
             {
                 MostrarTitulo();
                 MostrarTexto("Elija una opcion:");
                 MostrarTexto("1: Realizar una cotizacion.");
                 MostrarTexto("2: Historial de cotizaciones.");
+                MostrarTexto("3: Cambiar de usuario.");
                 MostrarTexto("X: Salir.");
                 opcionElegida = Console.ReadLine();
                 OpcionMenuPrincipal(opcionElegida, ref salir);
@@ -61,11 +84,11 @@ namespace DesafioFinal_DiezBeltran_Quark
                     salir = false;
                     break;
                 case "2":
-                    Console.Clear();
-                    presentador.MostrarHistorial();
-                    //MostrarTexto("-------------------------------------------------------------------");
-                    MostrarTexto("Presione cualquier tecla para cerrar el historial.");
-                    Console.ReadKey();
+                    MostrarHistorial();
+                    salir = false;
+                    break;
+                case "3":
+                    MostrarLogin();
                     salir = false;
                     break;
                 case "x":
@@ -115,9 +138,9 @@ namespace DesafioFinal_DiezBeltran_Quark
                     OpcionCalidad(opcionElegida, ref salir);
                 }
                 MostrarTexto("Que cantidad de prendas desea cotizar?");
-                cantidadDePrendas = int.Parse(Console.ReadLine());
+                ValidarCantidad();
                 MostrarTexto("Cual es el precio unitario de la prenda?");
-                precioPorPrenda = float.Parse(Console.ReadLine());
+                ValidarPrecio();
                 MostrarTexto("Desea confirmar la cotizacion? Confirmar(1) - Cancelar(2)");
                 opcionElegida = Console.ReadLine();
                 OpcionConfirmar(opcionElegida, ref salir);
@@ -132,13 +155,17 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Camisas");
                     codigoDePrenda = "0";
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Pantalones");
                     codigoDePrenda = "10";
                     salir = false;
@@ -149,7 +176,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -164,13 +191,17 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Manga corta");
                     codigoDePrenda = codigoDePrenda + "0";
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Manga larga");
                     codigoDePrenda = codigoDePrenda + "1";
                     salir = false;
@@ -181,7 +212,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -196,13 +227,17 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Cuello mao");
                     codigoDePrenda = codigoDePrenda + "0";
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Cuello comun");
                     codigoDePrenda = codigoDePrenda + "1";
                     salir = false;
@@ -213,7 +248,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -228,13 +263,17 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Comunes");
                     codigoDePrenda = codigoDePrenda + "0";
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Chupines");
                     codigoDePrenda = codigoDePrenda + "1";
                     salir = false;
@@ -245,7 +284,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -260,13 +299,17 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Standard");
                     codigoDePrenda = codigoDePrenda + "0";
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     Console.WriteLine("Premium");
                     codigoDePrenda = codigoDePrenda + "1";
                     salir = false;
@@ -277,7 +320,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -292,12 +335,16 @@ namespace DesafioFinal_DiezBeltran_Quark
             switch (opcionElegida)
             {
                 case "1":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     presentador.PedirCotizacion();
                     salir = false;
                     break;
                 case "2":
-                    Console.CursorTop--;
+                    Console.CursorTop = Console.CursorTop - 2;
+                    Console.Write("                                                            ");
+                    Console.CursorLeft = 0;
                     MenuCotizacion();
                     salir = false;
                     break;
@@ -307,7 +354,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 case "h":
                 case "H":
-                    //historial de cotizaciones
+                    MostrarHistorial();
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
@@ -317,7 +364,59 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
             }
         }
+        public void ValidarCantidad()
+        {            
+            try
+            {
+                string linea = Console.ReadLine();
+                if(linea == "h" || linea == "H")
+                {
+                    MostrarHistorial();
+                }
+                if (linea == "x" || linea == "X")
+                {
+                    MostrarMenuPrincipal();
+                }
+                cantidadDePrendas = int.Parse(linea);
+            }
+            catch(FormatException e)
+            {
+                MostrarTexto("La opción ingresada es inválida, por favor reintente.");
+                Console.ReadKey();
+                MenuCotizacion();
+            }
+        }
+        public void ValidarPrecio()
+        {
+            try
+            {
+                string linea = Console.ReadLine();
+                if (linea == "h" || linea == "H")
+                {
+                    MostrarHistorial();
+                }
+                if (linea == "x" || linea == "X")
+                {
+                    MostrarMenuPrincipal();
+                }
+                precioPorPrenda = float.Parse(linea);
+            }
+            catch (FormatException e)
+            {
+                MostrarTexto("La opción ingresada es inválida, por favor reintente.");
+                Console.ReadKey();
+                MenuCotizacion();
+            }
+        }
 
+        public void MostrarHistorial()
+        {
+            Console.Clear();
+            presentador.ImprimirHistorial();
+            MostrarTexto("Presione cualquier tecla para cerrar el historial.");
+            Console.ReadKey();
+            MostrarMenuPrincipal();
+        }
 
 
         //Metodos de la interfaz
