@@ -16,14 +16,14 @@ namespace DesafioFinal_DiezBeltran_Quark
         public Presentador(IVista vista, string nombre, string apellido, int codigo)
         {
             _vista = vista;
-            _tienda = new Tienda("Ropa cool", "Cabildo 1543");
+            _tienda = new Tienda("Ropa Cool", "Cabildo 1543");
             vendedor1 = new Vendedor(nombre, apellido, codigo);
             vendedor1.AsignarTienda(_tienda);
         }
 
         public void MostrarDatosTienda()
         {
-            _vista.MostrarTexto(_tienda.Nombre + "                                        " + _tienda.Direccion);
+            _vista.MostrarTexto(_tienda.Nombre + "                                               " + _tienda.Direccion);
         }
         public void MostrarDatosVendedor()
         {
