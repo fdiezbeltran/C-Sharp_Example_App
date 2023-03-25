@@ -14,8 +14,7 @@ namespace DesafioFinal_DiezBeltran_Quark
         
         public static void AgregarCotizacion(Cotizacion nuevaCotizacion)
         {
-            cotizaciones.Add(nuevaCotizacion);
-            
+            cotizaciones.Add(nuevaCotizacion);            
         }        
     }
 }

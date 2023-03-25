@@ -29,8 +29,6 @@ namespace DesafioFinal_DiezBeltran_Quark
         {
             _vista.MostrarTexto(vendedor1.Nombre + " " + vendedor1.Apellido + " - Codigo: " + vendedor1.CodigoVendedor);
         }
-
-
         public void PedirCotizacion()
         {
             cot = vendedor1.Cotizar(_vista.MostrarCodigoDePrenda(), _vista.MostrarPrecioPorPrenda(), _vista.MostrarCantidadDePrendas());
@@ -45,44 +43,39 @@ namespace DesafioFinal_DiezBeltran_Quark
                 FaltaDeStock();
             }
         }
-
         public void ImprimirCotizacion()
-        {
-            
-            _vista.MostrarTexto("ID de la cotizacion: " + cot.NumeroIdentificacion);
+        {            
+            _vista.MostrarTexto("ID de la cotización: " + cot.NumeroIdentificacion);
             _vista.MostrarTexto(cot.Fecha);
-            _vista.MostrarTexto("Codigo de vendedor: " + cot.CodVendedor);
+            _vista.MostrarTexto("Código de vendedor: " + cot.CodVendedor);
             _vista.MostrarTexto("Prenda cotizada: " + cot.PrendaCotizada);
             _vista.MostrarTexto("Cantidad de prendas a cotizar: " + cot.CantidadCotizada);
-            _vista.MostrarTexto("Precio final de la cotizacion: $" + cot.ResultadoCotizacion);
+            _vista.MostrarTexto("Precio final de la cotización: $" + cot.ResultadoCotizacion);
             _vista.MostrarTexto("-------------------------------------------------------------------");
             _vista.MostrarTexto("Presione una tecla para cerrar la cotizacion.");
-
         }
-
         public void FaltaDeStock()
         {
             _vista.MostrarTexto("Stock insuficiente del producto elegido.");
             _vista.MostrarTexto("-------------------------------------------------------------------");
-            _vista.MostrarTexto("Presione una tecla para volver al menu incial.");
+            _vista.MostrarTexto("Presione cualquier tecla para volver al menu incial.");
         }
-
         public void ImprimirHistorial()
         {            
             _vista.MostrarTexto(" - - - - - - - - - - - - - - HISTORIAL - - - - - - - - - - - - - - -");
             foreach (Cotizacion cot in HistorialCotizaciones.Cotizaciones)
             {
-                _vista.MostrarTexto("ID de la cotizacion: " + cot.NumeroIdentificacion);
+                _vista.MostrarTexto("ID de la cotización: " + cot.NumeroIdentificacion);
                 _vista.MostrarTexto(cot.Fecha);
-                _vista.MostrarTexto("Codigo de vendedor: " + cot.CodVendedor);
+                _vista.MostrarTexto("Código de vendedor: " + cot.CodVendedor);
                 _vista.MostrarTexto("Prenda cotizada: " + cot.PrendaCotizada);
                 _vista.MostrarTexto("Cantidad de prendas a cotizar: " + cot.CantidadCotizada);
-                _vista.MostrarTexto("Precio final de la cotizacion: $" + cot.ResultadoCotizacion);
+                _vista.MostrarTexto("Precio final de la cotización: $" + cot.ResultadoCotizacion);
                 _vista.MostrarTexto("-------------------------------------------------------------------");
             }            
             if(HistorialCotizaciones.Cotizaciones.Count == 0)
             {
-                _vista.MostrarTexto("Todavia no hay ninguna cotizacion guardada en el historial.");
+                _vista.MostrarTexto("Todavía no hay ninguna cotización guardada en el historial.");
                 _vista.MostrarTexto("-------------------------------------------------------------------");
             }
         }

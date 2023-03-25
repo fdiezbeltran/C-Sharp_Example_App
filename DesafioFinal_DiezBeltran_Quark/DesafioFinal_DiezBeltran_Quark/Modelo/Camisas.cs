@@ -13,7 +13,6 @@ namespace DesafioFinal_DiezBeltran_Quark
         public string TipoDeManga { get => tipoDeManga;}
         public string TipoDeCuello { get => tipoDeCuello;}
 
-
         public Camisas(int stock, string manga, string cuello, string cal)
         {
             calidadPrenda = cal;
@@ -21,6 +20,5 @@ namespace DesafioFinal_DiezBeltran_Quark
             tipoDeManga = manga;
             tipoDeCuello = cuello;
         }
-
     }
 }

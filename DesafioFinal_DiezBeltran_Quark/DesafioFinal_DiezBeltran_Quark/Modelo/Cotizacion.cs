@@ -77,7 +77,6 @@ namespace DesafioFinal_DiezBeltran_Quark
             }
             
             resultadoCotizacion = ResultadoCotizacion * cant;
-        }
-      
+        }      
     }
 }

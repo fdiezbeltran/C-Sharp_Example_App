@@ -8,7 +8,7 @@ namespace DesafioFinal_DiezBeltran_Quark
 {
     class Pantalones : Prendas
     {
-        string tipoDePantalon;
+        private string tipoDePantalon;
 
         public string TipoDePantalon { get => tipoDePantalon;}
 

@@ -1,0 +1,5 @@
+C:\Users\Tato\Desktop\Quark Desafio Final C#\DesafioFinal_DiezBeltran\DesafioFinal_DiezBeltran_Quark\DesafioFinal_DiezBeltran_Quark.exe
+C:\Users\Tato\Desktop\Quark Desafio Final C#\DesafioFinal_DiezBeltran\DesafioFinal_DiezBeltran_Quark\DesafioFinal_DiezBeltran_Quark.dll
+C:\Users\Tato\Desktop\Quark Desafio Final C#\DesafioFinal_DiezBeltran\DesafioFinal_DiezBeltran_Quark\DesafioFinal_DiezBeltran_Quark.deps.json
+C:\Users\Tato\Desktop\Quark Desafio Final C#\DesafioFinal_DiezBeltran\DesafioFinal_DiezBeltran_Quark\DesafioFinal_DiezBeltran_Quark.runtimeconfig.json
+C:\Users\Tato\Desktop\Quark Desafio Final C#\DesafioFinal_DiezBeltran\DesafioFinal_DiezBeltran_Quark\DesafioFinal_DiezBeltran_Quark.pdb

@@ -12,21 +12,20 @@ namespace DesafioFinal_DiezBeltran_Quark
         private string apellido;
         private int codigoVendedor;
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public int CodigoVendedor { get => codigoVendedor; set => codigoVendedor = value; }
+        public string Nombre { get => nombre; }
+        public string Apellido { get => apellido; }
+        public int CodigoVendedor { get => codigoVendedor; }
 
 
         public Vendedor(string nom, string ape, int cod)
         {
-            Nombre = nom;
-            Apellido = ape;
-            CodigoVendedor = cod;
+            nombre = nom;
+            apellido = ape;
+            codigoVendedor = cod;
         }
 
         private Tienda tienda;
-        private Prendas prendaElegida;
-        
+        private Prendas prendaElegida;        
         
         public void AsignarTienda(Tienda tienda)
         {
@@ -39,7 +38,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             {
                 prendaElegida.PrecioUnitario = precioUnitario;
                 Cotizacion cot = new Cotizacion(CodigoVendedor, prendaElegida, cant);
-                HistorialCotizaciones.AgregarCotizacion(cot);
+                EnviarCotizacionHistorial(cot);
                 return cot;
             }
             else
@@ -51,6 +50,10 @@ namespace DesafioFinal_DiezBeltran_Quark
         public void ElegirPrenda(int codigoPrenda)
         {
             prendaElegida = tienda.ListadoDePrendas[codigoPrenda];
+        }
+        public void EnviarCotizacionHistorial(Cotizacion cotizacion)
+        {
+            HistorialCotizaciones.AgregarCotizacion(cotizacion);
         }
     }
 }

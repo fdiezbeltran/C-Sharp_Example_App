@@ -45,8 +45,6 @@ namespace DesafioFinal_DiezBeltran_Quark
             ListadoDePrendas.Add(1001, prenda10);
             ListadoDePrendas.Add(1010, prenda11);
             ListadoDePrendas.Add(1011, prenda12);
-
-
         }
 
     }

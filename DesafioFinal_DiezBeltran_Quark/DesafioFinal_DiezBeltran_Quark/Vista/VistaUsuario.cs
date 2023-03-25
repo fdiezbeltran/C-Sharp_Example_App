@@ -12,14 +12,13 @@ namespace DesafioFinal_DiezBeltran_Quark
         private int cantidadDePrendas;
         private float precioPorPrenda;
 
-        private Presentador presentador;
-
-        
+        private Presentador presentador;              
 
         public VistaUsuario()
         {
             MostrarLogin();            
         }
+
         string titulo = @"    ,------.                           ,-----.              ,--.
     |  .--. ' ,---.  ,---.  ,--,--.   '  .--./ ,---.  ,---. |  |
     |  '--'.'| .-. || .-. |' ,-.  |   |  |    | .-. || .-. ||  |
@@ -34,7 +33,6 @@ namespace DesafioFinal_DiezBeltran_Quark
    |___|.__|                                               |__|__|
 
 ────────────────────────────────────────────────────────────────────";
-
 
         public void MostrarLogin()
         {
@@ -53,7 +51,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             string apellido = Console.ReadLine();
             Console.CursorLeft = 20;
             Console.BackgroundColor = ConsoleColor.Black;
-            MostrarTexto("Ingrese el codigo de vendedor.");
+            MostrarTexto("Ingrese el código de vendedor.");
             Console.CursorLeft = 30;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             int codigo = 0;
@@ -65,7 +63,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             {
                 Console.BackgroundColor = ConsoleColor.Black;
                 MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                MostrarTexto("Pulse cualquier tecla para continuar.");
+                MostrarTexto("Presione cualquier tecla para continuar.");
                 Console.ReadKey();
                 MostrarLogin();
             }
@@ -80,16 +78,16 @@ namespace DesafioFinal_DiezBeltran_Quark
             do
             {
                 MostrarTitulo();
-                MostrarTexto("Elija una opcion:");
+                MostrarTexto("Elija una opción:");
                 Console.WriteLine();
                 Console.CursorLeft = 5;
-                MostrarTexto("1: Realizar una cotizacion.");
+                MostrarTexto("1: Realizar una cotización.");
                 Console.WriteLine();
                 Console.CursorLeft = 5;
                 MostrarTexto("2: Cambiar de usuario.");
                 Console.WriteLine();
                 Console.CursorLeft = 5;
-                MostrarTexto("H : Historial de cotizaciones.");
+                MostrarTexto("H: Historial de cotizaciones.");
                 Console.WriteLine();
                 Console.CursorLeft = 5;
                 MostrarTexto("X: Salir.");
@@ -120,7 +118,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     salir = false;
                     break;
@@ -137,35 +135,35 @@ namespace DesafioFinal_DiezBeltran_Quark
                 MostrarTitulo();
                 MostrarTexto("Pulse X para salir o H para consultar el historial de cotizaciones.");
                 MostrarTexto("-------------------------------------------------------------------");
-                MostrarTexto("Desea cotizar Camisas(1) o Pantalones(2)?");
+                MostrarTexto("¿Desea cotizar Camisas(1) o Pantalones(2)?");
                 opcionElegida = Console.ReadLine();
                 OpcionPrenda(opcionElegida, ref salir);
                 if (opcionElegida == "1")
                 {
-                    MostrarTexto("Manga corta(1) o Manga larga(2)?");
+                    MostrarTexto("¿Manga corta(1) o Manga larga(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionManga(opcionElegida, ref salir);
-                    MostrarTexto("Cuello mao(1) o Cuello comun(2)?");
+                    MostrarTexto("¿Cuello mao(1) o Cuello común(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCuello(opcionElegida, ref salir);
-                    MostrarTexto("Calidad Stardard(1) o Premium(2)?");
+                    MostrarTexto("¿Calidad Standard(1) o Premium(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCalidad(opcionElegida, ref salir);
                 }
                 else if (opcionElegida == "2")
                 {
-                    MostrarTexto("Comunes(1) o Chupines(2)?");
+                    MostrarTexto("¿Comunes(1) o Chupines(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCorte(opcionElegida, ref salir);
-                    MostrarTexto("Calidad Stardard(1) o Premium(2)?");
+                    MostrarTexto("¿Calidad Standard(1) o Premium(2)?");
                     opcionElegida = Console.ReadLine();
                     OpcionCalidad(opcionElegida, ref salir);
                 }
-                MostrarTexto("Que cantidad de prendas desea cotizar?");
+                MostrarTexto("¿Qué cantidad de prendas desea cotizar?");
                 ValidarCantidad();
-                MostrarTexto("Cual es el precio unitario de la prenda?");
+                MostrarTexto("¿Cuál es el precio unitario de la prenda?");
                 ValidarPrecio();
-                MostrarTexto("Desea confirmar la cotizacion? Confirmar(1) - Cancelar(2)");
+                MostrarTexto("¿Desea confirmar la cotización? Confirmar(1) - Cancelar(2)");
                 opcionElegida = Console.ReadLine();
                 OpcionConfirmar(opcionElegida, ref salir);
                 Console.ReadKey();
@@ -204,7 +202,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -241,7 +239,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -278,7 +276,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -315,7 +313,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -352,7 +350,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -387,7 +385,7 @@ namespace DesafioFinal_DiezBeltran_Quark
                     break;
                 default:
                     MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                    MostrarTexto("Pulse cualquier tecla para continuar.");
+                    MostrarTexto("Presione cualquier tecla para continuar.");
                     Console.ReadKey();
                     MenuCotizacion();
                     salir = false;
@@ -412,7 +410,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             catch(FormatException e)
             {
                 MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                MostrarTexto("Pulse cualquier tecla para continuar.");
+                MostrarTexto("Presione cualquier tecla para continuar.");
                 Console.ReadKey();
                 MenuCotizacion();
             }
@@ -435,7 +433,7 @@ namespace DesafioFinal_DiezBeltran_Quark
             catch (FormatException e)
             {
                 MostrarTexto("La opción ingresada es inválida, por favor reintente.");
-                MostrarTexto("Pulse cualquier tecla para continuar.");
+                MostrarTexto("Presione cualquier tecla para continuar.");
                 Console.ReadKey();
                 MenuCotizacion();
             }
